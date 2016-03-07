@@ -255,6 +255,7 @@ namespace Apex.AI.Teaching
         /// <param name="destination">The destination.</param>
         public void MoveTo(Vector3 destination)
         {
+            _navMeshAgent.Resume();
             _navMeshAgent.SetDestination(destination);
         }
 

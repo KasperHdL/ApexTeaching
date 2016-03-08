@@ -26,26 +26,6 @@
             get { return _explodeRadius; }
         }
 
-        private void Update()
-        {
-            var rangeSqr = _explodeRadius * _explodeRadius;
-            var count = _observations.Count;
-            for (int i = 0; i < count; i++)
-            {
-                var obsCanDie = _observations[i].GetComponent<ICanDie>();
-                if (obsCanDie == null)
-                {
-                    continue;
-                }
-
-                if ((obsCanDie.transform.position - this.transform.position).sqrMagnitude < rangeSqr)
-                {
-                    Explode(GetDamage());
-                    return;
-                }
-            }
-        }
-
         protected override void InternalAttack(float dmg)
         {
             Explode(dmg);
